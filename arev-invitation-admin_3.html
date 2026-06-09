@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دعوة AREV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- ====================================================================== -->
+<!-- ✏️  القيم الافتراضية — تقدر تعدّل كلشي من «لوحة الإدارة» داخل الموقع     -->
+<!-- ====================================================================== -->
+<script>
+const CONFIG = {
+
+  /* كود الدخول للوحة الإدارة (غيّره لكود خاص بيك) */
+  adminCode: "AREV2026",
+
+  restaurantName: "AREV",
+  tagline:        "Where Heritage Meets Taste",
+  inviteLine:     "يتشرّف بدعوتكم لحضور",
+  eventTitle:     "أمسية الافتتاح الخاصة",
+  eventSubtitle:  "تجربة أرمنية أصيلة بروح عصرية",
+
+  eventDateISO:   "2026-07-25T20:00",
+  dateText:       "الخميس، ٢٥ تموز ٢٠٢٦",
+  timeText:       "الساعة ٨:٠٠ مساءً",
+  receptionText:  "الاستقبال يبدأ ٧:٣٠ مساءً",
+
+  dressCode:      "أناقة راقية · Smart Casual",
+
+  venueName:      "مطعم AREV",
+  venueAddress:   "Iraq Mall، بغداد",
+  parkingNote:    "يتوفر موقف سيارات خاص للضيوف",
+  mapLink:        "https://www.google.com/maps/search/?api=1&query=Iraq+Mall+Baghdad",
+  wazeLink:       "https://waze.com/ul?q=Iraq%20Mall%20Baghdad",
+
+  /* رقم واتساب لاستلام إشعارات التأكيد (دولي بدون + وبدون أصفار) */
+  notifyWhatsApp: "9647700000000",
+
+  agenda: [
+    { time: "٧:٣٠", title: "استقبال الضيوف وكوكتيل ترحيبي" },
+    { time: "٨:٠٠", title: "كلمة افتتاحية وقص الشريط" },
+    { time: "٨:٣٠", title: "العشاء وتذوّق المنيو الأرمني" },
+    { time: "١٠:٠٠", title: "فقرة موسيقية وأجواء مفتوحة" },
+  ],
+  menu: [
+    { name: "مزّات الشيف", desc: "تشكيلة من المقبّلات الأرمنية الحارّة والباردة" },
+    { name: "الطبق المميّز", desc: "وصفة AREV الخاصة بلمسة الشيف التنفيذي" },
+    { name: "الحلويات", desc: "ختام حلو من المطبخ الأرمني" },
+  ],
+
+  contactPhone:   "+964 770 000 0000",
+
+  /* ألوان AREV الرسمية */
+  colors: {
+    bg:"#243C40", bg2:"#2C4A4F", accent:"#D09D81", accentSoft:"#E4BCA4",
+    clay:"#A1735D", cream:"#F3ECE3", muted:"#B7A89A", green:"#86A98F", red:"#C98A77",
+  },
+};
+</script>
+<!-- ====================================================================== -->
+
+<style>
+  :root{
+    --bg:#243C40;--bg2:#2C4A4F;--accent:#D09D81;--accent-soft:#E4BCA4;
+    --clay:#A1735D;--cream:#F3ECE3;--muted:#B7A89A;--green:#86A98F;--red:#C98A77;--maxw:920px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--cream);font-family:'IBM Plex Sans Arabic',sans-serif;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .pop{font-family:'Poppins',sans-serif}
+  .eyebrow{font-size:.78rem;letter-spacing:.22em;color:var(--accent);font-weight:600}
+  .motif{color:var(--accent);display:inline-flex;margin:16px auto;opacity:.85}
+  .motif svg{width:38px;height:38px}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;background:radial-gradient(120% 90% at 50% 16%,var(--bg2) 0%,var(--bg) 60%);overflow:hidden}
+  .glow{position:absolute;top:-12%;left:50%;transform:translateX(-50%);width:680px;height:680px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(208,157,129,.18) 0%,rgba(208,157,129,0) 65%);animation:breathe 7s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.7;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.07)}}
+  .hero-inner{position:relative;z-index:2;max-width:640px}
+  .invite-line{color:var(--muted);font-size:1.05rem;font-weight:300;margin-bottom:10px}
+  .brand{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(3.8rem,15vw,7.5rem);line-height:.95;color:var(--cream);letter-spacing:.14em;margin:4px 0 6px;padding-right:.14em}
+  .tagline{font-family:'Poppins',sans-serif;font-size:.82rem;letter-spacing:.34em;text-transform:uppercase;color:var(--accent-soft);margin-top:4px}
+  .brand-line{width:90px;height:1px;background:var(--accent);margin:18px auto;opacity:.85}
+  .event-title{font-weight:700;font-size:clamp(1.5rem,5vw,2.2rem);color:var(--accent-soft);margin-top:18px}
+  .event-sub{color:var(--muted);font-weight:300;margin-top:10px;font-size:1.02rem}
+  .date-pill{display:inline-flex;gap:10px;align-items:center;margin-top:28px;border:1px solid rgba(208,157,129,.45);border-radius:999px;padding:11px 24px;color:var(--accent-soft);font-size:.95rem}
+  .scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--accent);opacity:.6;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+  section.block{padding:78px 0;position:relative}
+  .block + .block{border-top:1px solid rgba(208,157,129,.14)}
+  .sec-head{text-align:center;margin-bottom:46px;display:flex;flex-direction:column;align-items:center}
+  .sec-title{font-weight:700;font-size:clamp(1.6rem,4.5vw,2.2rem);color:var(--cream)}
+
+  .count{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+  .count .cell{min-width:88px;background:rgba(255,255,255,.04);border:1px solid rgba(208,157,129,.2);border-radius:14px;padding:18px 10px;text-align:center}
+  .count .num{font-family:'Poppins',sans-serif;font-size:2.3rem;font-weight:600;color:var(--accent-soft);line-height:1}
+  .count .lbl{font-size:.78rem;color:var(--muted);margin-top:8px}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:rgba(255,255,255,.04);border:1px solid rgba(208,157,129,.18);border-radius:16px;padding:30px 22px;text-align:center;transition:transform .3s,border-color .3s}
+  .card:hover{transform:translateY(-4px);border-color:rgba(208,157,129,.5)}
+  .card svg{width:30px;height:30px;stroke:var(--accent);margin-bottom:14px}
+  .card h3{color:var(--accent-soft);font-size:1.2rem;font-weight:600;margin-bottom:6px}
+  .card p{color:var(--cream);font-size:1rem}
+  .card small{display:block;color:var(--muted);margin-top:6px;font-size:.85rem}
+
+  .agenda{max-width:540px;margin:0 auto;list-style:none}
+  .agenda li{display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px dashed rgba(208,157,129,.2)}
+  .agenda li:last-child{border-bottom:none}
+  .agenda .t{font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:600;color:var(--accent);min-width:58px;text-align:left;direction:ltr}
+  .agenda .x{color:var(--cream);font-size:1.05rem}
+
+  .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .dish{text-align:center;padding:24px 18px;border:1px solid rgba(208,157,129,.16);border-radius:16px;background:linear-gradient(180deg,rgba(208,157,129,.06),transparent)}
+  .dish h4{color:var(--accent-soft);font-size:1.2rem;font-weight:600;margin-bottom:8px}
+  .dish p{color:var(--muted);font-size:.95rem;font-weight:300}
+
+  .venue-meta{text-align:center}
+  .venue-meta h3{color:var(--accent-soft);font-size:1.4rem;font-weight:600}
+  .venue-meta p{color:var(--muted);margin-top:6px}
+  .venue-meta .park{color:var(--accent-soft);font-size:.9rem;margin-top:4px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:500;font-size:1rem;padding:14px 28px;border-radius:999px;border:1px solid var(--accent);text-decoration:none;transition:all .3s}
+  .btn svg{width:18px;height:18px}
+  .btn.solid{background:var(--accent);color:#23383C;border-color:var(--accent)}
+  .btn.solid:hover{background:var(--accent-soft);border-color:var(--accent-soft)}
+  .btn.solid:disabled{opacity:.4;cursor:not-allowed}
+  .btn.ghost{background:transparent;color:var(--accent-soft)}
+  .btn.ghost:hover{background:rgba(208,157,129,.12)}
+  .btn.full{width:100%}
+  .btn.sm{padding:9px 18px;font-size:.86rem}
+  .btn.wa{background:var(--green);border-color:var(--green);color:#1c2f2a}
+  .btn.wa:hover{filter:brightness(1.08)}
+  .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+
+  .formbox{max-width:480px;margin:0 auto;background:rgba(255,255,255,.04);border:1px solid rgba(208,157,129,.18);border-radius:18px;padding:32px 26px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.88rem;color:var(--muted);margin-bottom:7px}
+  .field input,.field select,.field textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(208,157,129,.24);border-radius:11px;padding:12px 15px;color:var(--cream);font-family:'IBM Plex Sans Arabic',sans-serif;font-size:1rem;transition:.2s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+  .field textarea{resize:vertical;min-height:70px}
+  .seg{display:flex;gap:10px}
+  .seg button{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(208,157,129,.24);color:var(--muted);border-radius:11px;padding:13px;font-family:'IBM Plex Sans Arabic',sans-serif;font-size:.98rem;cursor:pointer;transition:.2s}
+  .seg button.on-yes{background:rgba(134,169,143,.2);border-color:var(--green);color:#d6e7da}
+  .seg button.on-no{background:rgba(201,138,119,.18);border-color:var(--red);color:#f0d3c8}
+  .done{text-align:center}
+  .done .seal{width:74px;height:74px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .done .seal svg{width:34px;height:34px;stroke:var(--accent)}
+  .done h3{color:var(--accent-soft);font-size:1.5rem;font-weight:600;margin-bottom:8px}
+  .done p{color:var(--muted)}
+  .contact-line{margin-top:26px;color:var(--muted);font-size:.92rem;text-align:center}
+  .contact-line a{color:var(--accent-soft);text-decoration:none;direction:ltr}
+
+  footer{position:relative;text-align:center;padding:46px 24px 110px;border-top:1px solid rgba(208,157,129,.14);color:var(--muted)}
+  footer .fb{font-family:'Poppins',sans-serif;font-size:1.5rem;color:var(--accent-soft);letter-spacing:.18em}
+  footer .ft{font-family:'Poppins',sans-serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  footer small{display:block;margin-top:10px;font-size:.8rem;opacity:.7}
+
+  .float{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:40;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+
+  .lock-fab{position:fixed;top:16px;left:16px;width:42px;height:42px;border-radius:50%;border:1px solid rgba(208,157,129,.35);background:rgba(36,60,64,.55);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:45;opacity:.42;transition:.25s}
+  .lock-fab:hover{opacity:1;border-color:var(--accent)}
+  .lock-fab svg{width:18px;height:18px;stroke:var(--accent-soft)}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ADMIN */
+  #admin{position:fixed;inset:0;background:var(--bg);z-index:100;overflow-y:auto;display:none}
+  .admin-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 22px;border-bottom:1px solid rgba(208,157,129,.16);position:sticky;top:0;background:var(--bg);z-index:2}
+  .admin-top .ttl{color:var(--accent-soft);font-size:1.2rem;font-weight:600}
+  .admin-top .right{display:flex;gap:10px;align-items:center}
+  .gate{max-width:380px;margin:90px auto;text-align:center;padding:0 24px}
+  .gate h3{color:var(--cream);font-size:1.5rem;font-weight:600;margin-bottom:6px}
+  .gate p{color:var(--muted);margin-bottom:22px;font-size:.92rem}
+  .gate .err{color:var(--red);font-size:.86rem;min-height:20px;margin-top:10px}
+  .dash{max-width:880px;margin:0 auto;padding:24px 24px 90px}
+  .tabs{display:flex;gap:8px;justify-content:center;margin-bottom:28px;flex-wrap:wrap}
+  .tab{background:rgba(255,255,255,.04);border:1px solid rgba(208,157,129,.22);color:var(--muted);border-radius:999px;padding:10px 22px;cursor:pointer;font-family:'IBM Plex Sans Arabic',sans-serif;font-size:.92rem;transition:.2s}
+  .tab.active{background:var(--accent);color:#23383C;border-color:var(--accent)}
+  .pane{display:none}.pane.active{display:block}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:26px}
+  .stat{background:rgba(255,255,255,.04);border:1px solid rgba(208,157,129,.18);border-radius:14px;padding:20px 12px;text-align:center}
+  .stat .n{font-family:'Poppins',sans-serif;font-size:2.2rem;font-weight:600;color:var(--accent-soft);line-height:1}
+  .stat .l{font-size:.78rem;color:var(--muted);margin-top:6px}
+  .sharebar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+  .sec-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .sec-row h4{color:var(--accent-soft);font-size:1.2rem;font-weight:600}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap}
+  .tbl-scroll{overflow-x:auto;border:1px solid rgba(208,157,129,.16);border-radius:14px}
+  table{width:100%;border-collapse:collapse;min-width:560px}
+  th,td{padding:12px 14px;text-align:right;font-size:.92rem;border-bottom:1px solid rgba(208,157,129,.12)}
+  th{color:var(--accent);font-weight:500;font-size:.82rem;background:rgba(208,157,129,.06)}
+  td{color:var(--cream)}tr:last-child td{border-bottom:none}
+  .tag{font-size:.78rem;padding:3px 10px;border-radius:999px;display:inline-block}
+  .tag.yes{background:rgba(134,169,143,.22);color:#d6e7da}
+  .tag.no{background:rgba(201,138,119,.2);color:#f0d3c8}
+  .del{background:none;border:none;color:var(--red);cursor:pointer;font-size:1.1rem;opacity:.7}.del:hover{opacity:1}
+  td a{color:var(--accent-soft);text-decoration:none;direction:ltr}
+  .empty{text-align:center;padding:40px 20px;color:var(--muted)}
+  .empty svg{width:34px;height:34px;stroke:var(--accent);opacity:.5;margin-bottom:12px}
+  .ed-group{margin-bottom:30px}
+  .ed-group>h4{color:var(--accent-soft);font-size:1.15rem;font-weight:600;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(208,157,129,.16)}
+  .editgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .editgrid .field{margin-bottom:0}.editgrid .span2{grid-column:1/-1}
+  .erow{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+  .erow input{background:rgba(255,255,255,.05);border:1px solid rgba(208,157,129,.24);border-radius:10px;padding:10px 12px;color:var(--cream);font-family:'IBM Plex Sans Arabic',sans-serif;font-size:.95rem;width:100%;transition:.2s}
+  .erow input:focus{outline:none;border-color:var(--accent)}
+  .erow .time-in{width:120px;flex:none;text-align:center}
+  .erow.menu-row .name-in{width:200px;flex:none}
+  .erow .del{flex:none}
+  .autosave{text-align:center;color:var(--green);font-size:.85rem;min-height:20px;margin-top:6px}
+  @media(max-width:640px){.editgrid{grid-template-columns:1fr}.erow{flex-wrap:wrap}.erow .time-in,.erow.menu-row .name-in{width:100%}}
+  @media(max-width:680px){.cards,.menu{grid-template-columns:1fr}section.block{padding:60px 0}.float{bottom:16px}.stats{grid-template-columns:1fr}.stat{display:flex;align-items:center;justify-content:space-between;text-align:right}.stat .n{font-size:1.6rem}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+  <div class="lock-fab" id="lockFab" title="لوحة الإدارة">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+  </div>
+
+  <header class="hero">
+    <div class="glow"></div>
+    <div class="hero-inner">
+      <p class="invite-line" id="inviteLine"></p>
+      <h1 class="brand" id="brand"></h1>
+      <div class="tagline" id="tagline"></div>
+      <div class="brand-line"></div>
+      <h2 class="event-title" id="eventTitle"></h2>
+      <p class="event-sub" id="eventSub"></p>
+      <div class="date-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span id="datePill"></span>
+      </div>
+    </div>
+    <div class="scroll-cue"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></div>
+  </header>
+
+  <section class="block reveal">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">العدّ التنازلي</span><span class="motif"></span><h2 class="sec-title">باقٍ على الأمسية</h2></div>
+      <div class="count" id="count"></div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">تفاصيل المناسبة</span><span class="motif"></span><h2 class="sec-title">معلومات مهمة</h2></div>
+      <div class="cards">
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><h3>التاريخ</h3><p id="cDate"></p></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>الوقت</h3><p id="cTime"></p><small id="cReception"></small></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20 6 9 17l-5-5"/></svg><h3>الزيّ</h3><p id="cDress"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">برنامج الأمسية</span><span class="motif"></span><h2 class="sec-title">تفاصيل الليلة</h2></div>
+      <ul class="agenda" id="agenda"></ul>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">من المطبخ</span><span class="motif"></span><h2 class="sec-title">لمحة من المنيو</h2></div>
+      <div class="menu" id="menu"></div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">الموقع</span><span class="motif"></span><h2 class="sec-title">أين نلتقي</h2></div>
+      <div class="venue-meta"><h3 id="venueName"></h3><p id="venueAddr"></p><p class="park" id="parking"></p></div>
+      <div class="btn-row">
+        <a class="btn solid" id="mapBtn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Google Maps</a>
+        <a class="btn ghost" id="wazeBtn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="11" r="8"/><path d="M9 10h.01M15 10h.01M9 15s1.2 1.5 3 1.5 3-1.5 3-1.5"/></svg>Waze</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal" id="rsvp">
+    <div class="wrap"><div class="sec-head"><span class="eyebrow">تأكيد الحضور</span><span class="motif"></span><h2 class="sec-title">نسعد بحضوركم</h2></div>
+      <div class="formbox" id="formPanel">
+        <div class="field"><label>الاسم الكامل</label><input id="fName" type="text" placeholder="اكتب اسمك" autocomplete="name"></div>
+        <div class="field"><label>رقم الهاتف</label><input id="fPhone" type="tel" placeholder="07XX XXX XXXX" dir="ltr" autocomplete="tel"></div>
+        <div class="field"><label>هل ستحضر؟</label><div class="seg"><button id="segYes" type="button">سأحضر</button><button id="segNo" type="button">أعتذر</button></div></div>
+        <div class="field" id="guestsField"><label>عدد الأشخاص (بما فيهم أنت)</label><select id="fGuests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
+        <div class="field"><label>ملاحظة (اختياري)</label><textarea id="fNote" placeholder="أي ملاحظة تحب توصلها لنا"></textarea></div>
+        <button class="btn solid full" id="submitBtn" disabled>إرسال التأكيد</button>
+      </div>
+      <div class="formbox done" id="donePanel" style="display:none">
+        <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3 id="doneTitle">تم استلام تأكيدك</h3>
+        <p id="doneMsg"></p>
+        <div class="btn-row" id="waNotifyRow" style="display:none"><a class="btn wa" id="waNotifyBtn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.38 8.38 0 0 1-12.3 7.4L3 21l2.1-5.6A8.5 8.5 0 1 1 21 11.5z"/></svg>أرسل تأكيدك عبر واتساب</a></div>
+        <div style="margin-top:16px"><button class="btn ghost sm" id="editAgain">تعديل ردّي</button></div>
+      </div>
+      <p class="contact-line">للاستفسار: <a id="phone" href=""></a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fb" id="footBrand"></div>
+    <div class="ft" id="footTag"></div>
+    <small>نتطلّع لرؤيتكم</small>
+  </footer>
+
+  <a class="btn solid float" href="#rsvp">تأكيد الحضور</a>
+
+  <!-- ADMIN -->
+  <div id="admin">
+    <div class="admin-top">
+      <span class="ttl" id="adminBrand">لوحة الإدارة</span>
+      <span class="right"><button class="btn ghost sm" id="closeAdmin">رجوع للدعوة</button></span>
+    </div>
+
+    <div class="gate" id="gate">
+      <h3>لوحة التحكم</h3>
+      <p>أدخل الكود السري للدخول</p>
+      <div class="field"><input id="codeInput" type="password" placeholder="الكود السري" style="text-align:center" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></div>
+      <label style="display:flex;gap:8px;justify-content:center;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:18px;cursor:pointer;user-select:none"><input type="checkbox" id="showCode" style="width:auto;accent-color:var(--accent)"> إظهار الكود</label>
+      <button class="btn solid full" id="unlockBtn">دخول</button>
+      <div class="err" id="gateErr"></div>
+    </div>
+
+    <div class="dash" id="dash" style="display:none">
+      <div class="tabs">
+        <button class="tab active" data-tab="guests">قائمة الحضور</button>
+        <button class="tab" data-tab="content">تعديل الدعوة</button>
+      </div>
+
+      <div class="pane active" id="pane-guests">
+        <div class="sharebar">
+          <button class="btn ghost sm" id="copyLink">📋 نسخ رابط الصفحة (للفريق)</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="n" id="stConfirm">0</div><div class="l">مؤكّد الحضور</div></div>
+          <div class="stat"><div class="n" id="stPeople">0</div><div class="l">إجمالي الأشخاص</div></div>
+          <div class="stat"><div class="n" id="stDecline">0</div><div class="l">اعتذروا</div></div>
+        </div>
+        <div class="sec-row"><h4>قائمة المؤكّدين</h4>
+          <span class="toolbar"><button class="btn ghost sm" id="refreshBtn">تحديث</button><button class="btn ghost sm" id="exportBtn">تصدير CSV</button></span>
+        </div>
+        <div id="listArea"><div class="empty"><p>جارٍ التحميل…</p></div></div>
+      </div>
+
+      <div class="pane" id="pane-content">
+        <div class="ed-group"><h4>التفاصيل العامة</h4><div class="editgrid" id="simpleEditor"></div></div>
+        <div class="ed-group"><h4>برنامج الأمسية</h4><div id="agendaEditor"></div><button class="btn ghost sm" id="addAgenda">+ إضافة فقرة</button></div>
+        <div class="ed-group"><h4>المنيو</h4><div id="menuEditor"></div><button class="btn ghost sm" id="addMenu">+ إضافة طبق</button></div>
+        <div class="autosave" id="autosaveMsg">يُحفظ تلقائياً مع كل تعديل ✓</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function(){
+  const C=CONFIG, $=id=>document.getElementById(id);
+
+  /* ألوان */
+  const rs=document.documentElement.style;
+  Object.entries({bg:'--bg',bg2:'--bg2',accent:'--accent',accentSoft:'--accent-soft',clay:'--clay',cream:'--cream',muted:'--muted',green:'--green',red:'--red'})
+    .forEach(([k,v])=>C.colors[k]&&rs.setProperty(v,C.colors[k]));
+
+  /* زخرفة النجمة الثمانية (شعار AREV) */
+  const MOTIF='<svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="12" y="12" width="20" height="20"/><rect x="12" y="12" width="20" height="20" transform="rotate(45 22 22)"/><circle cx="22" cy="22" r="2.2" fill="currentColor" stroke="none"/></svg>';
+  document.querySelectorAll('.motif').forEach(m=>m.innerHTML=MOTIF);
+
+  /* تخزين مشترك (الفريق يفتح نفس الرابط ويشوف نفس البيانات) */
+  const hasStore=(typeof window!=='undefined'&&window.storage);
+  const Store={
+    async set(k,v){try{if(hasStore)await window.storage.set(k,v,true);else localStorage.setItem(k,v);}catch(e){console.error(e);}},
+    async get(k){try{if(hasStore){const r=await window.storage.get(k,true);return r?r.value:null;}return localStorage.getItem(k);}catch(e){return null;}},
+    async list(p){try{if(hasStore){const r=await window.storage.list(p,true);return r?r.keys:[];}const o=[];for(let i=0;i<localStorage.length;i++){const x=localStorage.key(i);if(x.startsWith(p))o.push(x);}return o;}catch(e){return [];}},
+    async del(k){try{if(hasStore)await window.storage.delete(k,true);else localStorage.removeItem(k);}catch(e){console.error(e);}},
+  };
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+  /* بيانات الدعوة */
+  const KEYS=['restaurantName','tagline','inviteLine','eventTitle','eventSubtitle','eventDateISO','dateText','timeText','receptionText','dressCode','venueName','venueAddress','parkingNote','mapLink','wazeLink','notifyWhatsApp','contactPhone'];
+  let data={agenda:[],menu:[]};
+  KEYS.forEach(k=>data[k]=C[k]||'');
+  data.agenda=(C.agenda||[]).map(a=>({...a}));
+  data.menu=(C.menu||[]).map(m=>({...m}));
+
+  async function loadData(){
+    const raw=await Store.get('event-data');
+    if(raw){try{const d=JSON.parse(raw);Object.assign(data,d);if(!Array.isArray(data.agenda))data.agenda=[];if(!Array.isArray(data.menu))data.menu=[];}catch(e){}}
+    renderGuest(); startCountdown();
+  }
+
+  function renderGuest(){
+    $('inviteLine').textContent=data.inviteLine;
+    $('brand').textContent=data.restaurantName;
+    $('tagline').textContent=data.tagline||'';
+    $('eventTitle').textContent=data.eventTitle;
+    $('eventSub').textContent=data.eventSubtitle;
+    $('datePill').textContent=data.dateText+' · '+data.timeText;
+    $('cDate').textContent=data.dateText;
+    $('cTime').textContent=data.timeText;
+    $('cReception').textContent=data.receptionText||'';
+    $('cDress').textContent=data.dressCode;
+    $('venueName').textContent=data.venueName;
+    $('venueAddr').textContent=data.venueAddress;
+    $('parking').textContent=data.parkingNote||'';
+    $('footBrand').textContent=data.restaurantName;
+    $('footTag').textContent=data.tagline||'';
+    $('adminBrand').textContent='لوحة الإدارة — '+data.restaurantName;
+    document.title='دعوة '+data.restaurantName;
+    $('phone').textContent=data.contactPhone;$('phone').href='tel:'+(data.contactPhone||'').replace(/\s/g,'');
+    if(data.mapLink){$('mapBtn').href=data.mapLink;$('mapBtn').style.display='';}else $('mapBtn').style.display='none';
+    if(data.wazeLink){$('wazeBtn').href=data.wazeLink;$('wazeBtn').style.display='';}else $('wazeBtn').style.display='none';
+    $('agenda').innerHTML=data.agenda.filter(a=>a.time||a.title).map(a=>`<li><span class="t">${esc(a.time)}</span><span class="x">${esc(a.title)}</span></li>`).join('');
+    $('menu').innerHTML=data.menu.filter(m=>m.name||m.desc).map(m=>`<div class="dish"><h4>${esc(m.name)}</h4><p>${esc(m.desc)}</p></div>`).join('');
+  }
+
+  /* العدّاد */
+  let timer=null,curISO=null;
+  function startCountdown(){
+    if(timer)clearInterval(timer);
+    curISO=data.eventDateISO;
+    const target=new Date(data.eventDateISO).getTime();
+    function tick(){
+      const diff=target-Date.now();
+      if(isNaN(target)){$('count').innerHTML='';return;}
+      if(diff<=0){$('count').innerHTML='<p style="color:var(--accent-soft);font-size:1.3rem">الأمسية قد بدأت — أهلاً وسهلاً بكم</p>';clearInterval(timer);return;}
+      $('count').innerHTML=`
+        <div class="cell"><div class="num">${Math.floor(diff/86400000)}</div><div class="lbl">يوم</div></div>
+        <div class="cell"><div class="num">${Math.floor(diff%86400000/3600000)}</div><div class="lbl">ساعة</div></div>
+        <div class="cell"><div class="num">${Math.floor(diff%3600000/60000)}</div><div class="lbl">دقيقة</div></div>
+        <div class="cell"><div class="num">${Math.floor(diff%60000/1000)}</div><div class="lbl">ثانية</div></div>`;
+    }
+    tick();timer=setInterval(tick,1000);
+  }
+
+  /* فورم RSVP */
+  let attend=null;
+  function refreshSubmit(){$('submitBtn').disabled=!($('fName').value.trim()&&$('fPhone').value.trim()&&attend!==null);}
+  $('segYes').onclick=()=>{attend='yes';$('segYes').className='on-yes';$('segNo').className='';$('guestsField').style.display='';refreshSubmit();};
+  $('segNo').onclick =()=>{attend='no';$('segNo').className='on-no';$('segYes').className='';$('guestsField').style.display='none';refreshSubmit();};
+  ['fName','fPhone'].forEach(id=>$(id).addEventListener('input',refreshSubmit));
+  $('submitBtn').onclick=async()=>{
+    $('submitBtn').disabled=true;$('submitBtn').textContent='جارٍ الإرسال…';
+    const id=Date.now()+'-'+Math.random().toString(36).slice(2,7);
+    const entry={id,name:$('fName').value.trim(),phone:$('fPhone').value.trim(),status:attend,guests:attend==='yes'?$('fGuests').value:'-',note:$('fNote').value.trim(),ts:Date.now()};
+    await Store.set('rsvp:'+id,JSON.stringify(entry));
+    $('formPanel').style.display='none';$('donePanel').style.display='';
+    $('doneTitle').textContent=attend==='yes'?'تم تأكيد حضورك 🌟':'شكراً لإعلامنا';
+    $('doneMsg').textContent=attend==='yes'?('نتطلّع لرؤيتك في '+data.venueName+' — '+data.dateText):'نأسف لعدم تمكّنك من الحضور، ونتمنى لقاءك في مناسبة قادمة.';
+    if(data.notifyWhatsApp){
+      const msg=`تأكيد جديد لـ ${data.restaurantName} — ${data.eventTitle}\nالاسم: ${entry.name}\nالهاتف: ${entry.phone}\nالحالة: ${attend==='yes'?'سيحضر ✅':'اعتذر ❌'}\nعدد الأشخاص: ${entry.guests}`+(entry.note?`\nملاحظة: ${entry.note}`:'');
+      $('waNotifyBtn').href='https://wa.me/'+data.notifyWhatsApp+'?text='+encodeURIComponent(msg);
+      $('waNotifyRow').style.display='';
+    }
+    $('rsvp').scrollIntoView({behavior:'smooth'});
+  };
+  $('editAgain').onclick=()=>{$('donePanel').style.display='none';$('formPanel').style.display='';$('submitBtn').disabled=false;$('submitBtn').textContent='إرسال التأكيد';};
+
+  /* الإدارة */
+  function openAdmin(){$('admin').style.display='block';document.body.style.overflow='hidden';}
+  function closeAdmin(){$('admin').style.display='none';document.body.style.overflow='';}
+  $('lockFab').onclick=openAdmin;$('closeAdmin').onclick=closeAdmin;
+  if(location.hash.toLowerCase()==='#admin')openAdmin();
+
+  const norm=s=>String(s||'').trim().toLowerCase();
+  function unlock(){if(norm($('codeInput').value)===norm(C.adminCode)){$('gateErr').textContent='';$('gate').style.display='none';$('dash').style.display='block';buildContentEditor();loadList();}else $('gateErr').textContent='الكود غير صحيح، حاول مرة أخرى.';}
+  $('unlockBtn').onclick=unlock;
+  $('codeInput').addEventListener('keydown',e=>{if(e.key==='Enter')unlock();});
+  $('showCode').addEventListener('change',e=>{$('codeInput').type=e.target.checked?'text':'password';});
+
+  document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.pane').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');$('pane-'+t.dataset.tab).classList.add('active');
+  });
+
+  $('copyLink').onclick=async()=>{
+    try{await navigator.clipboard.writeText(location.href);$('copyLink').textContent='✓ تم نسخ الرابط';setTimeout(()=>$('copyLink').textContent='📋 نسخ رابط الصفحة (للفريق)',2000);}
+    catch(e){prompt('انسخ الرابط:',location.href);}
+  };
+
+  /* محرّر المحتوى + الحفظ التلقائي */
+  const SIMPLE=[
+    {k:'restaurantName',l:'اسم المطعم'},
+    {k:'tagline',l:'الشعار (Where Heritage Meets Taste)',span:1},
+    {k:'inviteLine',l:'جملة الدعوة'},
+    {k:'eventTitle',l:'عنوان المناسبة'},
+    {k:'eventSubtitle',l:'وصف قصير',span:1,t:'textarea'},
+    {k:'eventDateISO',l:'تاريخ ووقت العدّاد التنازلي',t:'datetime-local'},
+    {k:'dateText',l:'التاريخ (كما يظهر للضيف)'},
+    {k:'timeText',l:'الوقت (كما يظهر)'},
+    {k:'receptionText',l:'ملاحظة الاستقبال'},
+    {k:'dressCode',l:'الزيّ'},
+    {k:'venueName',l:'اسم المكان'},
+    {k:'venueAddress',l:'العنوان',span:1},
+    {k:'parkingNote',l:'ملاحظة الموقف'},
+    {k:'mapLink',l:'رابط Google Maps',span:1,t:'url'},
+    {k:'wazeLink',l:'رابط Waze',span:1,t:'url'},
+    {k:'notifyWhatsApp',l:'واتساب الإشعارات (دولي بدون +)'},
+    {k:'contactPhone',l:'رقم التواصل'},
+  ];
+  function buildContentEditor(){
+    $('simpleEditor').innerHTML=SIMPLE.map(f=>{
+      const v=esc(data[f.k]||'');
+      const inp=f.t==='textarea'?`<textarea data-k="${f.k}">${v}</textarea>`:`<input data-k="${f.k}" type="${f.t||'text'}" value="${v}">`;
+      return `<div class="field ${f.span?'span2':''}"><label>${f.l}</label>${inp}</div>`;
+    }).join('');
+    renderAgendaRows();renderMenuRows();
+  }
+  function renderAgendaRows(){
+    $('agendaEditor').innerHTML=data.agenda.map((a,i)=>`<div class="erow" data-i="${i}">
+      <input class="time-in agenda-time" type="text" value="${esc(a.time)}" placeholder="الوقت">
+      <input class="agenda-title" type="text" value="${esc(a.title)}" placeholder="وصف الفقرة">
+      <button class="del" data-del-agenda="${i}" title="حذف">✕</button></div>`).join('');
+    $('agendaEditor').querySelectorAll('[data-del-agenda]').forEach(b=>b.onclick=()=>{syncAgenda();data.agenda.splice(+b.dataset.delAgenda,1);renderAgendaRows();save();});
+  }
+  function renderMenuRows(){
+    $('menuEditor').innerHTML=data.menu.map((m,i)=>`<div class="erow menu-row" data-i="${i}">
+      <input class="name-in menu-name" type="text" value="${esc(m.name)}" placeholder="اسم الطبق">
+      <input class="menu-desc" type="text" value="${esc(m.desc)}" placeholder="الوصف">
+      <button class="del" data-del-menu="${i}" title="حذف">✕</button></div>`).join('');
+    $('menuEditor').querySelectorAll('[data-del-menu]').forEach(b=>b.onclick=()=>{syncMenu();data.menu.splice(+b.dataset.delMenu,1);renderMenuRows();save();});
+  }
+  function syncAgenda(){data.agenda=[...$('agendaEditor').querySelectorAll('.erow')].map(r=>({time:r.querySelector('.agenda-time').value,title:r.querySelector('.agenda-title').value}));}
+  function syncMenu(){data.menu=[...$('menuEditor').querySelectorAll('.erow')].map(r=>({name:r.querySelector('.menu-name').value,desc:r.querySelector('.menu-desc').value}));}
+  function collect(){
+    $('simpleEditor').querySelectorAll('[data-k]').forEach(i=>data[i.dataset.k]=i.value);
+    syncAgenda();syncMenu();
+  }
+  $('addAgenda').onclick=()=>{syncAgenda();data.agenda.push({time:'',title:''});renderAgendaRows();};
+  $('addMenu').onclick=()=>{syncMenu();data.menu.push({name:'',desc:''});renderMenuRows();};
+
+  /* حفظ تلقائي debounced */
+  let saveT=null;
+  async function doSave(){
+    await Store.set('event-data',JSON.stringify(data));
+    renderGuest();
+    if(data.eventDateISO!==curISO)startCountdown();
+    $('autosaveMsg').textContent='✓ تم الحفظ تلقائياً';
+    setTimeout(()=>{$('autosaveMsg').textContent='يُحفظ تلقائياً مع كل تعديل ✓';},1800);
+  }
+  function save(){ collect(); clearTimeout(saveT); saveT=setTimeout(doSave,500); }
+  $('pane-content').addEventListener('input',()=>{ $('autosaveMsg').textContent='يُحفظ…'; save(); });
+
+  /* قائمة المؤكّدين */
+  let entries=[];
+  async function loadList(){
+    $('listArea').innerHTML='<div class="empty"><p>جارٍ التحميل…</p></div>';
+    const keys=await Store.list('rsvp:');entries=[];
+    await Promise.all(keys.map(async k=>{const v=await Store.get(k);if(v){try{entries.push(JSON.parse(v));}catch(e){}}}));
+    entries.sort((a,b)=>b.ts-a.ts);renderStats();renderTable();
+  }
+  function renderStats(){
+    const yes=entries.filter(e=>e.status==='yes');
+    $('stConfirm').textContent=yes.length;
+    $('stPeople').textContent=yes.reduce((s,e)=>s+(parseInt(e.guests)||1),0);
+    $('stDecline').textContent=entries.filter(e=>e.status==='no').length;
+  }
+  function fmtDate(ts){const d=new Date(ts);return d.toLocaleDateString('ar',{day:'2-digit',month:'2-digit'})+' '+d.toLocaleTimeString('ar',{hour:'2-digit',minute:'2-digit'});}
+  function renderTable(){
+    if(!entries.length){$('listArea').innerHTML='<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><p>لا توجد تأكيدات بعد. شارك الرابط مع المدعوين.</p></div>';return;}
+    const rows=entries.map(e=>`<tr><td>${esc(e.name)}</td><td><a href="tel:${esc(e.phone)}">${esc(e.phone)}</a></td><td>${e.status==='yes'?'<span class="tag yes">سيحضر</span>':'<span class="tag no">اعتذر</span>'}</td><td>${esc(e.guests)}</td><td>${esc(e.note||'—')}</td><td style="color:var(--muted);font-size:.8rem">${fmtDate(e.ts)}</td><td><button class="del" data-del="${e.id}" title="حذف">✕</button></td></tr>`).join('');
+    $('listArea').innerHTML=`<div class="tbl-scroll"><table><thead><tr><th>الاسم</th><th>الهاتف</th><th>الحالة</th><th>العدد</th><th>ملاحظة</th><th>الوقت</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    $('listArea').querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{if(!confirm('حذف هذا التأكيد؟'))return;await Store.del('rsvp:'+b.dataset.del);loadList();});
+  }
+  $('refreshBtn').onclick=loadList;
+  $('exportBtn').onclick=()=>{
+    if(!entries.length){alert('لا توجد بيانات للتصدير.');return;}
+    const head=['الاسم','الهاتف','الحالة','العدد','ملاحظة','الوقت'];
+    const lines=entries.map(e=>[e.name,e.phone,e.status==='yes'?'سيحضر':'اعتذر',e.guests,(e.note||''),fmtDate(e.ts)].map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(','));
+    const csv='\uFEFF'+head.join(',')+'\n'+lines.join('\n');
+    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='arev-rsvp.csv';document.body.appendChild(a);a.click();a.remove();
+  };
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  loadData();
+})();
+</script>
+</body>
+</html>
